@@ -6,6 +6,7 @@ import {
 import QuizPage from '../Pages/Quiz/quizpage';
 import HomePage from '../Pages/Home/home';
 import Navbar from '../components/Navbar/navbar';
+import Result from '../Pages/Result/result';
 
 
 const RouterFunction = () => {
@@ -15,6 +16,7 @@ const RouterFunction = () => {
         <Routes>
         <Route path= "/" element = {< HomePage />} />
         <Route path = "/quiz" element = {< QuizPage />}/>
+        <Route path = "/result" element = {< Result />}/>
         </Routes>
          </div>
     )

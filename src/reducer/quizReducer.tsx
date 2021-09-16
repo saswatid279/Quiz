@@ -6,12 +6,14 @@ export default function quizReducer(state: Quizstate, action: Action) {
   
     switch (action.type) {
       case "RESET":
-        return { ...state, score: 0 };
+        return { ...state,questionNumber:0, score: 0 };
       
       case "FETCH_INFO":
-        console.log(action.payload.quizname);
-        return {...state, quizname: action.payload.quizname,score:0,questions:action.payload.questions}
-
+        console.log("reducer",action.payload.quizname);
+        return {...state, quizname: action.payload.quizname,questionNumber:0,score:0,questions:action.payload.questions,quizLoaded:true};
+        
+      case "NEXT_QUESTION":
+        return {...state, questionNumber:state.questionNumber+1}
       case "CALC_SCORE":
         return {...state, score:state.score+action.payload}
       case "INCREMENT":

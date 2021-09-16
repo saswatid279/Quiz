@@ -11,20 +11,22 @@ const QuizContext = React.createContext<any>(null);
   export const QuizProvider: React.FC=({ children }) => {
     useEffect(() => {
       (async () => {
-        const { quiz:data } = await axios
+        const { success,quiz:data } = await axios
           .get("https://quiz.saswatidas.repl.co/movies")
           .then((response:any) => {
-            console.log(response.data)
             return response.data;
           });
           console.log(data);
-        dispatch({ type: "FETCH_INFO", payload: data });
+          if(success){
+        dispatch({ type: "FETCH_INFO", payload: {quizname:data[0].quizname,questions:data[0].questions} });}
       })();
     }, []);
     const initialQuizState:Quizstate= {
       quizname:"",
+      questionNumber:0,
       score:0,
-      questions:[]
+      questions:[],
+      quizLoaded:false
     }
     const [state, dispatch]:any= useReducer<any>(quizReducer, initialQuizState);
     return (

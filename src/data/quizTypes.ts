@@ -15,8 +15,10 @@ export type option={
   }
   export type Quizstate={
     quizname:String;
+    questionNumber:number;
     score:number;
     questions:question[];
+    quizLoaded:boolean
   }
   export type Quiz={
     quizname:String;
@@ -36,7 +38,8 @@ export type option={
 
   export type Action =
   | { type: "RESET" }
-  | {type:"FETCH_INFO"; payload:Quiz}
+  | {type:"FETCH_INFO"; payload:{quizname:String,questions:[]}}
+  | {type:"NEXT_QUESTION"}
   | {type:"CALC_SCORE"; payload:number}
   | { type: "INCREMENT"; payload: { score: number } }
   | { type: "DECREMENT"; payload: { negativeScore: number } };
