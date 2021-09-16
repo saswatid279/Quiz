@@ -12,13 +12,13 @@ import Result from '../Pages/Result/result';
 const RouterFunction = () => {
     return (
         <div>
-        <Navbar/>
-        <Routes>
-        <Route path= "/" element = {< HomePage />} />
-        <Route path = "/quiz" element = {< QuizPage />}/>
-        <Route path = "/result" element = {< Result />}/>
-        </Routes>
-         </div>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={< HomePage />} />
+                <Route path="/quiz" element={< QuizPage />} />
+                <Route path="/result" element={< Result />} />
+            </Routes>
+        </div>
     )
 }
 

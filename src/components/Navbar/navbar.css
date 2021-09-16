@@ -1,6 +1,6 @@
 .navbar-container{
     text-align: left;
     padding:1rem 2rem;
-    background-color: white;
-    color:#BC8F8F;
+    background-color:var(--secondarycolor);
+    color:var(--primarycolor)
 }

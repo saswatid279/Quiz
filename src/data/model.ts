@@ -3,7 +3,7 @@ const quiz:Quiz={
     quizname:"Movies",
     questions:[
         {
-            question:"1.What animal was Tarzan raised by?",
+            question:"What animal was Tarzan raised by?",
             points:5,
             options:[
               {
@@ -18,7 +18,7 @@ const quiz:Quiz={
         },
 
         {
-            question:"2. How long was the Genie stuck in the lamp before Aladdin released him?",
+            question:"How long was the Genie stuck in the lamp before Aladdin released him?",
             points:5,
             options:[
               {
