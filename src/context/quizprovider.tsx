@@ -1,18 +1,14 @@
-import { useContext, createContext, useState, useReducer, useEffect } from "react";
-//import {status} from "../data/quizTypes"
-//import { Quiz } from "../data/quizTypes";
+import { useContext, useReducer, useEffect } from "react";
+
 import {Quizstate} from"../data/quizTypes";
-//import {QuizContextType} from "../data/quizTypes"
 import React from "react";
 import axios from "axios";
 import quizReducer from "../reducer/quizReducer";
 
-//const QuizContext = React.createContext({} as QuizContextType);
 const QuizContext = React.createContext<any>(null);
 
 
   export const QuizProvider: React.FC=({ children }) => {
-    //const [Quizzes, setQuizzes] = useState<Quiz | null>(null);
     useEffect(() => {
       (async () => {
         const { quiz:data } = await axios

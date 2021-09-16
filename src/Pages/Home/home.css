@@ -34,10 +34,13 @@
   background-color: var(--rosybrown);
   color:white;
 }
-.x{
+/* .x{
 text-align: start;
-}
+} */
+.link{
+  text-decoration: none;
 
+}
 .btn{
     border: none;
     outline:none;
