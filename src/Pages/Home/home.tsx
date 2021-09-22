@@ -11,7 +11,7 @@ export default function Homepage() {
 
     return (
         <div className="home-container">
-            <input id="name" onChange={(event) => setName(event.target.value)} placeholder="Enter your name" />
+            <input type="text" id="name" onChange={(event) => setName(event.target.value)} placeholder="Enter your name" required/>
             <Link className="link" to={`/quiz`}>
                 <button className="btn" onClick={() => startQuiz(name)}>Start</button>
             </Link>

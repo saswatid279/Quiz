@@ -4,18 +4,22 @@ import { useQuiz } from "../../context/quizprovider";
 import "./quiz.css"
 const Quizpage = () => {
     const { state, dispatch } = useQuiz();
+    const [message,setmessage]=useState<String|null>()
     const [optionclicked, setoptionClicked] = useState<boolean>(false)
     const navigate = useNavigate();
     const nextQuestion = (questionNumber: number) => {
         setoptionClicked(false)
         if (questionNumber >= 4)
             navigate("/result");
-        else
+        else{
+            setmessage("");
             dispatch({ type: "NEXT_QUESTION" });
-
+        }
     };
     function optionClickHandler(option: any) {
         setoptionClicked(true)
+        let msg=(option.isCorrect )?"Your answer is correct": "Your answer is wrong"
+        setmessage(msg);
         dispatch({ type: "CALC_SCORE", payload: option.isCorrect ? state.questions[state.questionNumber].points : -1 })
     }
     function resetHandler(username: String) {
@@ -43,7 +47,9 @@ const Quizpage = () => {
                     })}
                     <button onClick={() => nextQuestion(state.questionNumber)}>Next Question</button>
                     <button onClick={() => resetHandler(state.username)}>Reset</button>
+                    <div><span>{message}</span></div>
                 </div>
+               
             </div>}
 
         </div>
